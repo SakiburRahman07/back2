@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BookDao extends JpaRepository<Booking, Long> {
+    Booking findById(long id);
 
 }

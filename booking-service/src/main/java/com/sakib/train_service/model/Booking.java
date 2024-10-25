@@ -6,10 +6,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Data
 @Entity
 @NoArgsConstructor
+@CrossOrigin(origins = "http://localhost:5177")
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +22,15 @@ public class Booking {
     private String destination;
     private String date;
     private String bookingseat;
+    private boolean otpStatus;
+
+    public void setOtpStatus(boolean otpStatus) {
+        this.otpStatus = otpStatus;
+    }
+
+    public boolean isOtpStatus() {
+        return otpStatus;
+    }
 
     public Long getId() {
         return id;
